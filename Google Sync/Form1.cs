@@ -15,5 +15,16 @@ namespace Google_Sync
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            bool[] checkbox = new bool[3];
+            checkbox[0] = this.cal_box.Checked;
+            checkbox[1] = this.task_box.Checked;
+            checkbox[2] = this.contact_box.Checked;
+            src.work work = new Google_Sync.src.work();
+            work.irgendwas(checkbox);
+        }
+
     }
 }
