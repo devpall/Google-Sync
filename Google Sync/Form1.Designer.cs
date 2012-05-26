@@ -35,7 +35,10 @@
             this.task_box = new System.Windows.Forms.CheckBox();
             this.contact_box = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.Tasksbox = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.Tasksbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -78,15 +81,30 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Tasksbox
+            // 
+            this.Tasksbox.Controls.Add(this.label1);
+            resources.ApplyResources(this.Tasksbox, "Tasksbox");
+            this.Tasksbox.Name = "Tasksbox";
+            this.Tasksbox.TabStop = false;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Tasksbox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
             this.Name = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.Tasksbox.ResumeLayout(false);
+            this.Tasksbox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,6 +118,8 @@
         private System.Windows.Forms.CheckBox task_box;
         private System.Windows.Forms.CheckBox cal_box;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox Tasksbox;
+        private System.Windows.Forms.Label label1;
     }
 }
 
