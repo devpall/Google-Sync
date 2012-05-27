@@ -14,17 +14,17 @@ namespace Google_Sync
         public Form1()
         {
             InitializeComponent();
+            setVersionLbl();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private string Version()
         {
-            bool[] checkbox = new bool[3];
-            checkbox[0] = this.cal_box.Checked;
-            checkbox[1] = this.task_box.Checked;
-            checkbox[2] = this.contact_box.Checked;
-            src.work work = new Google_Sync.src.work();
-            work.irgendwas(checkbox);
+            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
+        private void setVersionLbl()
+        {
+            VersionLbl.Text = Version();
+        }
     }
 }
