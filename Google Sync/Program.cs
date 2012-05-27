@@ -19,10 +19,6 @@ namespace Google_Sync
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-
-            src.Outlook Outlook = new Google_Sync.src.Outlook();
-            Microsoft.Office.Interop.Outlook.MAPIFolder TaskFolder = Outlook.getTask();
-            Microsoft.Office.Interop.Outlook.MAPIFolder CalenderFolder = Outlook.getCalender();
         }
     }
 }

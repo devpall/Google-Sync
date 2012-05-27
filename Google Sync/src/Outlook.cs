@@ -20,13 +20,7 @@ namespace Google_Sync.src
 
         }
 
-        public Microsoft.Office.Interop.Outlook.MAPIFolder getTask()
-        {
-            mapiNamespace = oApp.GetNamespace("MAPI");
-            Microsoft.Office.Interop.Outlook.MAPIFolder TaskFolder = null;
-            TaskFolder = mapiNamespace.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders.olFolderTasks);
-            return TaskFolder;
-        }
+        
     }
 }
 
@@ -50,4 +44,13 @@ for (int i = 1; i < CalendarFolder.Items.Count + 1; i++)
     Console.WriteLine(item.Duration);
 }
 Console.Read();
+ * 
+ * 
+public Microsoft.Office.Interop.Outlook.MAPIFolder getTask()
+        {
+            mapiNamespace = oApp.GetNamespace("MAPI");
+            Microsoft.Office.Interop.Outlook.MAPIFolder TaskFolder = null;
+            TaskFolder = mapiNamespace.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders.olFolderTasks);
+            return TaskFolder;
+        }
  */
