@@ -13,6 +13,7 @@ namespace Google_Sync
     {
         public Form1()
         {
+            
             InitializeComponent();
             setVersionLbl();
         }
@@ -25,6 +26,11 @@ namespace Google_Sync
         private void setVersionLbl()
         {
             VersionLbl.Text = Version();
+        }
+
+        private void StartBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

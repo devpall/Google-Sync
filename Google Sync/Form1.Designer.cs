@@ -124,6 +124,7 @@
             resources.ApplyResources(this.StartBtn, "StartBtn");
             this.StartBtn.Name = "StartBtn";
             this.StartBtn.UseVisualStyleBackColor = true;
+            this.StartBtn.Click += new System.EventHandler(this.StartBtn_Click);
             // 
             // AccountLbl
             // 

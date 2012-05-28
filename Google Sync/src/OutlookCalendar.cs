@@ -5,11 +5,12 @@ using System.Text;
 
 namespace Google_Sync.src
 {
-    public class Outlook
+    public class OutlookCalendar
     {
         private Microsoft.Office.Interop.Outlook.Application oApp = new Microsoft.Office.Interop.Outlook.Application();
         private Microsoft.Office.Interop.Outlook.NameSpace mapiNamespace = null;
         public Microsoft.Office.Interop.Outlook.MAPIFolder[] Folders = null;
+        
         public Microsoft.Office.Interop.Outlook.MAPIFolder getCalender()
         {
             mapiNamespace = oApp.GetNamespace("MAPI");
