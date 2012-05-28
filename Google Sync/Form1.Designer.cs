@@ -68,6 +68,16 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ItemBx = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.SubjectLbl = new System.Windows.Forms.Label();
+            this.LocationLbl = new System.Windows.Forms.Label();
+            this.CategorieLbl = new System.Windows.Forms.Label();
+            this.StartLbl = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -77,6 +87,7 @@
             this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ItemBx.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -91,6 +102,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.ItemBx);
             this.tabPage1.Controls.Add(this.progressLbl);
             this.tabPage1.Controls.Add(this.progressBar1);
             this.tabPage1.Controls.Add(this.StopBtn);
@@ -111,13 +123,14 @@
             // 
             resources.ApplyResources(this.progressBar1, "progressBar1");
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Value = 50;
+            this.progressBar1.Step = 1;
             // 
             // StopBtn
             // 
             resources.ApplyResources(this.StopBtn, "StopBtn");
             this.StopBtn.Name = "StopBtn";
             this.StopBtn.UseVisualStyleBackColor = true;
+            this.StopBtn.Click += new System.EventHandler(this.StopBtn_Click);
             // 
             // StartBtn
             // 
@@ -342,6 +355,60 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
+            // ItemBx
+            // 
+            this.ItemBx.Controls.Add(this.StartLbl);
+            this.ItemBx.Controls.Add(this.CategorieLbl);
+            this.ItemBx.Controls.Add(this.LocationLbl);
+            this.ItemBx.Controls.Add(this.SubjectLbl);
+            this.ItemBx.Controls.Add(this.label16);
+            this.ItemBx.Controls.Add(this.label15);
+            this.ItemBx.Controls.Add(this.label14);
+            this.ItemBx.Controls.Add(this.label13);
+            resources.ApplyResources(this.ItemBx, "ItemBx");
+            this.ItemBx.Name = "ItemBx";
+            this.ItemBx.TabStop = false;
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.Name = "label13";
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
+            // 
+            // SubjectLbl
+            // 
+            resources.ApplyResources(this.SubjectLbl, "SubjectLbl");
+            this.SubjectLbl.Name = "SubjectLbl";
+            // 
+            // LocationLbl
+            // 
+            resources.ApplyResources(this.LocationLbl, "LocationLbl");
+            this.LocationLbl.Name = "LocationLbl";
+            // 
+            // CategorieLbl
+            // 
+            resources.ApplyResources(this.CategorieLbl, "CategorieLbl");
+            this.CategorieLbl.Name = "CategorieLbl";
+            // 
+            // StartLbl
+            // 
+            resources.ApplyResources(this.StartLbl, "StartLbl");
+            this.StartLbl.Name = "StartLbl";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -366,6 +433,8 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ItemBx.ResumeLayout(false);
+            this.ItemBx.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -411,6 +480,16 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label VersionLbl;
+        private System.Windows.Forms.GroupBox ItemBx;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label StartLbl;
+        private System.Windows.Forms.Label CategorieLbl;
+        private System.Windows.Forms.Label LocationLbl;
+        private System.Windows.Forms.Label SubjectLbl;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
 
 
     }
