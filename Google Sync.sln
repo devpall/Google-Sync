@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google Sync", "Google Sync\Google Sync.csproj", "{57CEA614-BB55-4425-9B75-F676FD75CBA5}"
 EndProject
 Global
