@@ -31,6 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ItemBx = new System.Windows.Forms.GroupBox();
+            this.StartLbl = new System.Windows.Forms.Label();
+            this.CategorieLbl = new System.Windows.Forms.Label();
+            this.LocationLbl = new System.Windows.Forms.Label();
+            this.SubjectLbl = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.progressLbl = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.StopBtn = new System.Windows.Forms.Button();
@@ -41,9 +50,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -53,7 +62,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.SaveBx = new System.Windows.Forms.CheckBox();
-            this.PasswordBx = new System.Windows.Forms.TextBox();
             this.NameBx = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -68,18 +76,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.ItemBx = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.SubjectLbl = new System.Windows.Forms.Label();
-            this.LocationLbl = new System.Windows.Forms.Label();
-            this.CategorieLbl = new System.Windows.Forms.Label();
-            this.StartLbl = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.PasswordBx = new System.Windows.Forms.MaskedTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.ItemBx.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -87,7 +88,6 @@
             this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.ItemBx.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -112,6 +112,60 @@
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ItemBx
+            // 
+            this.ItemBx.Controls.Add(this.StartLbl);
+            this.ItemBx.Controls.Add(this.CategorieLbl);
+            this.ItemBx.Controls.Add(this.LocationLbl);
+            this.ItemBx.Controls.Add(this.SubjectLbl);
+            this.ItemBx.Controls.Add(this.label16);
+            this.ItemBx.Controls.Add(this.label15);
+            this.ItemBx.Controls.Add(this.label14);
+            this.ItemBx.Controls.Add(this.label13);
+            resources.ApplyResources(this.ItemBx, "ItemBx");
+            this.ItemBx.Name = "ItemBx";
+            this.ItemBx.TabStop = false;
+            // 
+            // StartLbl
+            // 
+            resources.ApplyResources(this.StartLbl, "StartLbl");
+            this.StartLbl.Name = "StartLbl";
+            // 
+            // CategorieLbl
+            // 
+            resources.ApplyResources(this.CategorieLbl, "CategorieLbl");
+            this.CategorieLbl.Name = "CategorieLbl";
+            // 
+            // LocationLbl
+            // 
+            resources.ApplyResources(this.LocationLbl, "LocationLbl");
+            this.LocationLbl.Name = "LocationLbl";
+            // 
+            // SubjectLbl
+            // 
+            resources.ApplyResources(this.SubjectLbl, "SubjectLbl");
+            this.SubjectLbl.Name = "SubjectLbl";
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.Name = "label13";
             // 
             // progressLbl
             // 
@@ -170,9 +224,9 @@
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.radioButton4);
-            this.panel4.Controls.Add(this.radioButton5);
             this.panel4.Controls.Add(this.radioButton6);
+            this.panel4.Controls.Add(this.radioButton5);
+            this.panel4.Controls.Add(this.radioButton4);
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
             // 
@@ -181,12 +235,13 @@
             resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
             // 
-            // radioButton4
+            // radioButton6
             // 
-            resources.ApplyResources(this.radioButton4, "radioButton4");
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.TabStop = true;
-            this.radioButton4.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.radioButton6, "radioButton6");
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.TabStop = true;
+            this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // radioButton5
             // 
@@ -194,13 +249,15 @@
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.TabStop = true;
             this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
-            // radioButton6
+            // radioButton4
             // 
-            resources.ApplyResources(this.radioButton6, "radioButton6");
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.TabStop = true;
-            this.radioButton6.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.radioButton4, "radioButton4");
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.TabStop = true;
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
             // 
             // panel3
             // 
@@ -223,6 +280,7 @@
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.TabStop = true;
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -230,6 +288,7 @@
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.TabStop = true;
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -237,6 +296,7 @@
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.TabStop = true;
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // label8
             // 
@@ -246,9 +306,9 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.PasswordBx);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.SaveBx);
-            this.panel1.Controls.Add(this.PasswordBx);
             this.panel1.Controls.Add(this.NameBx);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label2);
@@ -261,6 +321,7 @@
             resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SaveBx
             // 
@@ -268,15 +329,8 @@
             this.SaveBx.Name = "SaveBx";
             this.SaveBx.UseVisualStyleBackColor = true;
             // 
-            // PasswordBx
-            // 
-            this.PasswordBx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.PasswordBx, "PasswordBx");
-            this.PasswordBx.Name = "PasswordBx";
-            // 
             // NameBx
             // 
-            this.NameBx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.NameBx, "NameBx");
             this.NameBx.Name = "NameBx";
             // 
@@ -355,59 +409,12 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // ItemBx
+            // PasswordBx
             // 
-            this.ItemBx.Controls.Add(this.StartLbl);
-            this.ItemBx.Controls.Add(this.CategorieLbl);
-            this.ItemBx.Controls.Add(this.LocationLbl);
-            this.ItemBx.Controls.Add(this.SubjectLbl);
-            this.ItemBx.Controls.Add(this.label16);
-            this.ItemBx.Controls.Add(this.label15);
-            this.ItemBx.Controls.Add(this.label14);
-            this.ItemBx.Controls.Add(this.label13);
-            resources.ApplyResources(this.ItemBx, "ItemBx");
-            this.ItemBx.Name = "ItemBx";
-            this.ItemBx.TabStop = false;
-            // 
-            // label13
-            // 
-            resources.ApplyResources(this.label13, "label13");
-            this.label13.Name = "label13";
-            // 
-            // label14
-            // 
-            resources.ApplyResources(this.label14, "label14");
-            this.label14.Name = "label14";
-            // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
-            // 
-            // label16
-            // 
-            resources.ApplyResources(this.label16, "label16");
-            this.label16.Name = "label16";
-            // 
-            // SubjectLbl
-            // 
-            resources.ApplyResources(this.SubjectLbl, "SubjectLbl");
-            this.SubjectLbl.Name = "SubjectLbl";
-            // 
-            // LocationLbl
-            // 
-            resources.ApplyResources(this.LocationLbl, "LocationLbl");
-            this.LocationLbl.Name = "LocationLbl";
-            // 
-            // CategorieLbl
-            // 
-            resources.ApplyResources(this.CategorieLbl, "CategorieLbl");
-            this.CategorieLbl.Name = "CategorieLbl";
-            // 
-            // StartLbl
-            // 
-            resources.ApplyResources(this.StartLbl, "StartLbl");
-            this.StartLbl.Name = "StartLbl";
+            this.PasswordBx.Culture = new System.Globalization.CultureInfo("de-DE");
+            resources.ApplyResources(this.PasswordBx, "PasswordBx");
+            this.PasswordBx.Name = "PasswordBx";
+            this.PasswordBx.PasswordChar = '●';
             // 
             // Form1
             // 
@@ -421,6 +428,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.ItemBx.ResumeLayout(false);
+            this.ItemBx.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -433,8 +442,6 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ItemBx.ResumeLayout(false);
-            this.ItemBx.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -458,7 +465,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox SaveBx;
-        private System.Windows.Forms.TextBox PasswordBx;
         private System.Windows.Forms.TextBox NameBx;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
@@ -471,9 +477,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -490,6 +496,7 @@
         private System.Windows.Forms.Label LocationLbl;
         private System.Windows.Forms.Label SubjectLbl;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.MaskedTextBox PasswordBx;
 
 
     }

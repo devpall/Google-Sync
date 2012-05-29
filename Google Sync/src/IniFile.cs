@@ -1,5 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using System.Text;
+using System.IO;
+using System;
 
 namespace Google_Sync.src
 {
@@ -85,7 +87,5 @@ namespace Google_Sync.src
             int i = GetPrivateProfileString(Section,Key, "", temp, 255, this.path);
             return temp.ToString();
         }
-
-
     }
 }
