@@ -81,6 +81,7 @@
     <Compile Include="src\Encryption.cs" />
     <Compile Include="src\IniFile.cs" />
     <Compile Include="src\Worker.cs" />
+    <Compile Include="src\WriteIniFile.cs" />
     <EmbeddedResource Include="Form1.de-DE.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>

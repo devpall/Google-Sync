@@ -14,21 +14,21 @@ namespace Google_Sync
 {
     public partial class Form1 : Form
     {
-        const string password = "bNvG$G&MnK_%alpbSu7x[c0/63A90#]f{6w0>C6*5[Vfn[fX[Ex%";
+       
 
         private OutlookCalendar OCal;
         private int i;
         private int count;
         private string progress = null;
 
-        private IniFile Settings;
+        private WriteIniFile wIni;
 
         /// <summary>
         /// Konstruktor Form1
         /// </summary>
         public Form1()
         {
-            Settings = new src.IniFile(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Google Sync\config.ini");
+            wIni = new WriteIniFile();
 
             
             InitializeComponent();
@@ -74,46 +74,76 @@ namespace Google_Sync
             this.count = OCal.CalendarLength;
 
            
-        }        
+        }
+        /// <summary>
+        /// Action für den Stop Button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StopBtn_Click(object sender, EventArgs e)
         {
         }
 
+        /// <summary>
+        /// Action für den Ok Button im Config Tab
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            
+            wIni.Username = NameBx.Text;
+            wIni.Password = PasswordBx.Text;
+            wIni.Save = SaveBx.Checked;
+            
+            /*
+             * Changed on 29.05.2012
+             * Veraltet
+             * By Andreas Fritz
             Settings["Login"]["Username"] = NameBx.Text;
             Settings["Login"]["Password"] = Encryption.EncryptString(PasswordBx.Text,password);
             Settings["Login"]["Save Credentials"] = SaveBx.Checked.ToString();
+             */
         }
 
+        /// <summary>
+        /// Gibt den Ini File Wert zurück ob Login gespeichert oder nicht.
+        /// </summary>
+        /// <returns></returns>
         private bool checkSaveCredentials()
         {
-            if (Settings["Login"]["Save Credentials"] == "True")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return wIni.Save;
         }
 
+        /// <summary>
+        /// Gibt den Ini File Wert für den Usernamen zurück
+        /// </summary>
+        /// <returns></returns>
         private string getUserName()
         {
-            return Settings["Login"]["Username"];
+            return wIni.Username;
         }
 
+        /// <summary>
+        /// Gibt den Ini File Wert für das Passwort decrypted zurück
+        /// </summary>
+        /// <returns></returns>
         private string getPassword()
         {
-            return Encryption.DecryptString(Settings["Login"]["Password"], password);
+            return wIni.Password;
         }
 
+        /// <summary>
+        /// Gibt die Ini File Werte für die Sync Optionen wieder
+        /// Category & Timeintervall
+        /// </summary>
+        /// <returns></returns>
         private bool[,] getRadio()
         {
             bool[,] radioArray = new bool[2,3];
             
-            string cat = Settings["Sync Options"]["Category"];
-            string tim = Settings["Sync Options"]["Intervall"];
+            string cat = wIni.Category;
+            string tim = wIni.Intervall;
             
             switch (cat)
             {
@@ -168,36 +198,70 @@ namespace Google_Sync
 
         }
 
+        /// <summary>
+        /// Action für den ersten Radio Button (Categorie - neues Label)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            Settings["Sync Options"]["Category"] = "Label";
+            wIni.Category = "Label";
         }
 
+        /// <summary>
+        /// Action für den zweiten Radio Button (Categorie - neuer Kalender)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            Settings["Sync Options"]["Category"] = "Calendar";
+            wIni.Category = "Calendar";
         }
 
+        /// <summary>
+        /// Action für den dritten Radio Button (Categorie - Alles in einem)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            Settings["Sync Options"]["Category"] = "Nothing";
+            wIni.Category = "Nothing";
         }
 
+        /// <summary>
+        /// Action für den vierten Radio Button (Intervall - beim Starten syncen)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
-            Settings["Sync Options"]["Intervall"] = "Startup";
+            wIni.Intervall = "Startup";
         }
 
+        /// <summary>
+        /// Action für den fünften Radio Button (Intervall - aller 60 minuten syncen)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
-            Settings["Sync Options"]["Intervall"] = "60";
+            wIni.Intervall = "60";
         }
 
+        /// <summary>
+        /// Action für den sechsten Radio Button (Intervall - aus)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            Settings["Sync Options"]["Intervall"] = "Off";
+            wIni.Intervall = "Off";
         }
 
+        /// <summary>
+        /// Setze die Radiobutton beim Start der Applikation
+        /// </summary>
+        /// <param name="radioArray">Werte für die einzelnen Radiobuttons</param>
         private void setRadio(bool[,] radioArray)
         {
             radioButton1.Checked = radioArray[0,0];
