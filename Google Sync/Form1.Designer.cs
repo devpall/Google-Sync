@@ -31,15 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.ItemBx = new System.Windows.Forms.GroupBox();
-            this.StartLbl = new System.Windows.Forms.Label();
-            this.CategorieLbl = new System.Windows.Forms.Label();
-            this.LocationLbl = new System.Windows.Forms.Label();
-            this.SubjectLbl = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.progressLbl = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.StopBtn = new System.Windows.Forms.Button();
@@ -60,6 +51,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PasswordBx = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SaveBx = new System.Windows.Forms.CheckBox();
             this.NameBx = new System.Windows.Forms.TextBox();
@@ -77,10 +69,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.PasswordBx = new System.Windows.Forms.MaskedTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.ItemBx.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -102,7 +92,6 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.ItemBx);
             this.tabPage1.Controls.Add(this.progressLbl);
             this.tabPage1.Controls.Add(this.progressBar1);
             this.tabPage1.Controls.Add(this.StopBtn);
@@ -112,60 +101,6 @@
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // ItemBx
-            // 
-            this.ItemBx.Controls.Add(this.StartLbl);
-            this.ItemBx.Controls.Add(this.CategorieLbl);
-            this.ItemBx.Controls.Add(this.LocationLbl);
-            this.ItemBx.Controls.Add(this.SubjectLbl);
-            this.ItemBx.Controls.Add(this.label16);
-            this.ItemBx.Controls.Add(this.label15);
-            this.ItemBx.Controls.Add(this.label14);
-            this.ItemBx.Controls.Add(this.label13);
-            resources.ApplyResources(this.ItemBx, "ItemBx");
-            this.ItemBx.Name = "ItemBx";
-            this.ItemBx.TabStop = false;
-            // 
-            // StartLbl
-            // 
-            resources.ApplyResources(this.StartLbl, "StartLbl");
-            this.StartLbl.Name = "StartLbl";
-            // 
-            // CategorieLbl
-            // 
-            resources.ApplyResources(this.CategorieLbl, "CategorieLbl");
-            this.CategorieLbl.Name = "CategorieLbl";
-            // 
-            // LocationLbl
-            // 
-            resources.ApplyResources(this.LocationLbl, "LocationLbl");
-            this.LocationLbl.Name = "LocationLbl";
-            // 
-            // SubjectLbl
-            // 
-            resources.ApplyResources(this.SubjectLbl, "SubjectLbl");
-            this.SubjectLbl.Name = "SubjectLbl";
-            // 
-            // label16
-            // 
-            resources.ApplyResources(this.label16, "label16");
-            this.label16.Name = "label16";
-            // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
-            // 
-            // label14
-            // 
-            resources.ApplyResources(this.label14, "label14");
-            this.label14.Name = "label14";
-            // 
-            // label13
-            // 
-            resources.ApplyResources(this.label13, "label13");
-            this.label13.Name = "label13";
             // 
             // progressLbl
             // 
@@ -316,6 +251,13 @@
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
+            // PasswordBx
+            // 
+            this.PasswordBx.Culture = new System.Globalization.CultureInfo("de-DE");
+            resources.ApplyResources(this.PasswordBx, "PasswordBx");
+            this.PasswordBx.Name = "PasswordBx";
+            this.PasswordBx.PasswordChar = '●';
+            // 
             // button1
             // 
             resources.ApplyResources(this.button1, "button1");
@@ -409,13 +351,6 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // PasswordBx
-            // 
-            this.PasswordBx.Culture = new System.Globalization.CultureInfo("de-DE");
-            resources.ApplyResources(this.PasswordBx, "PasswordBx");
-            this.PasswordBx.Name = "PasswordBx";
-            this.PasswordBx.PasswordChar = '●';
-            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -428,8 +363,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.ItemBx.ResumeLayout(false);
-            this.ItemBx.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -486,15 +419,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label VersionLbl;
-        private System.Windows.Forms.GroupBox ItemBx;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label StartLbl;
-        private System.Windows.Forms.Label CategorieLbl;
-        private System.Windows.Forms.Label LocationLbl;
-        private System.Windows.Forms.Label SubjectLbl;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.MaskedTextBox PasswordBx;
 

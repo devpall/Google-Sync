@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Outlook;
-using System.Threading;
 using Google_Sync.src;
 
 
@@ -22,8 +21,6 @@ namespace Google_Sync
         private int count;
         private string progress = null;
 
-        private Thread queryRunningThread;
-
         private IniFile Settings;
 
         /// <summary>
@@ -33,9 +30,7 @@ namespace Google_Sync
         {
             Settings = new src.IniFile(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Google Sync\config.ini");
 
-            queryRunningThread = new Thread(new ThreadStart(ProcessLoop));
-            queryRunningThread.Name = "ProcessLoop";
-            queryRunningThread.IsBackground = true;   
+            
             InitializeComponent();
 
             if (checkSaveCredentials())
@@ -78,70 +73,10 @@ namespace Google_Sync
             this.OCal = new src.OutlookCalendar();
             this.count = OCal.CalendarLength;
 
-            this.progressBar1.Minimum = 0;
-            this.progressBar1.Maximum = count;
-            this.progressBar1.Visible = true;
-
-            this.progressLbl.Visible = true;
-            if (queryRunningThread.IsAlive)
-            {
-                queryRunningThread.Resume();
-            }
-            else
-            {
-                queryRunningThread.Start();
-            }
-
-            SubjectLbl.Text = queryRunningThread.ThreadState.ToString();
-            
-        }
-
-        private void ProcessLoop()
-        {
-
-            for (i = 1; i < OCal.CalendarLength + 1; i++)
-            {
-                var item = (AppointmentItem)OCal.Calendar.Items[i];
-                progress = i.ToString() + " von " + OCal.CalendarLength.ToString();
-                UpdateProgressBar(i);
-                UpdateProgressLabel(progress);
-                if (!this.ItemBx.Visible)
-                {
-                    this.ItemBx.Visible = true;
-                }
-                System.Threading.Thread.Sleep(1000);
-
-
-            }
-        }
-       
-
-        void UpdateProgressBar(int value)
-        {
-            if (InvokeRequired)
-            {
-                BeginInvoke(new IntParameterDelegate(UpdateProgressBar), new object[] { value });
-                return;
-            }
-            progressBar1.Value = value;
-        }
-
-        void UpdateProgressLabel(string value)
-        {
-            if (InvokeRequired)
-            {
-                BeginInvoke(new StringParameterDelegate(UpdateProgressLabel), new object[] { value });
-                return;
-            }
-            progressLbl.Text = value;
-        }
-
+           
+        }        
         private void StopBtn_Click(object sender, EventArgs e)
         {
-            if (queryRunningThread.IsAlive)
-            {
-                queryRunningThread.Suspend();
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)

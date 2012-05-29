@@ -118,269 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="StartLbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="StartLbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="StartLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>82, 90</value>
-  </data>
-  <data name="StartLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 13</value>
-  </data>
-  <data name="StartLbl.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="StartLbl.Text" xml:space="preserve">
-    <value>label17</value>
-  </data>
-  <data name="&gt;&gt;StartLbl.Name" xml:space="preserve">
-    <value>StartLbl</value>
-  </data>
-  <data name="&gt;&gt;StartLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;StartLbl.Parent" xml:space="preserve">
-    <value>ItemBx</value>
-  </data>
-  <data name="&gt;&gt;StartLbl.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="CategorieLbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CategorieLbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="CategorieLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>82, 67</value>
-  </data>
-  <data name="CategorieLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 13</value>
-  </data>
-  <data name="CategorieLbl.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="CategorieLbl.Text" xml:space="preserve">
-    <value>label17</value>
-  </data>
-  <data name="&gt;&gt;CategorieLbl.Name" xml:space="preserve">
-    <value>CategorieLbl</value>
-  </data>
-  <data name="&gt;&gt;CategorieLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CategorieLbl.Parent" xml:space="preserve">
-    <value>ItemBx</value>
-  </data>
-  <data name="&gt;&gt;CategorieLbl.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="LocationLbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LocationLbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LocationLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>82, 43</value>
-  </data>
-  <data name="LocationLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 13</value>
-  </data>
-  <data name="LocationLbl.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="LocationLbl.Text" xml:space="preserve">
-    <value>label17</value>
-  </data>
-  <data name="&gt;&gt;LocationLbl.Name" xml:space="preserve">
-    <value>LocationLbl</value>
-  </data>
-  <data name="&gt;&gt;LocationLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LocationLbl.Parent" xml:space="preserve">
-    <value>ItemBx</value>
-  </data>
-  <data name="&gt;&gt;LocationLbl.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="SubjectLbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="SubjectLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>82, 20</value>
-  </data>
-  <data name="SubjectLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 13</value>
-  </data>
-  <data name="SubjectLbl.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="SubjectLbl.Text" xml:space="preserve">
-    <value>label17</value>
-  </data>
-  <data name="&gt;&gt;SubjectLbl.Name" xml:space="preserve">
-    <value>SubjectLbl</value>
-  </data>
-  <data name="&gt;&gt;SubjectLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SubjectLbl.Parent" xml:space="preserve">
-    <value>ItemBx</value>
-  </data>
-  <data name="&gt;&gt;SubjectLbl.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="label16.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 90</value>
-  </data>
-  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 13</value>
-  </data>
-  <data name="label16.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="label16.Text" xml:space="preserve">
-    <value>Start:</value>
-  </data>
-  <data name="&gt;&gt;label16.Name" xml:space="preserve">
-    <value>label16</value>
-  </data>
-  <data name="&gt;&gt;label16.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label16.Parent" xml:space="preserve">
-    <value>ItemBx</value>
-  </data>
-  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="label15.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 67</value>
-  </data>
-  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 13</value>
-  </data>
-  <data name="label15.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="label15.Text" xml:space="preserve">
-    <value>Categorie:</value>
-  </data>
-  <data name="&gt;&gt;label15.Name" xml:space="preserve">
-    <value>label15</value>
-  </data>
-  <data name="&gt;&gt;label15.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label15.Parent" xml:space="preserve">
-    <value>ItemBx</value>
-  </data>
-  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="label14.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 43</value>
-  </data>
-  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 13</value>
-  </data>
-  <data name="label14.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label14.Text" xml:space="preserve">
-    <value>Location:</value>
-  </data>
-  <data name="&gt;&gt;label14.Name" xml:space="preserve">
-    <value>label14</value>
-  </data>
-  <data name="&gt;&gt;label14.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
-    <value>ItemBx</value>
-  </data>
-  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="label13.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 20</value>
-  </data>
-  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 13</value>
-  </data>
-  <data name="label13.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label13.Text" xml:space="preserve">
-    <value>Subject:</value>
-  </data>
-  <data name="&gt;&gt;label13.Name" xml:space="preserve">
-    <value>label13</value>
-  </data>
-  <data name="&gt;&gt;label13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
-    <value>ItemBx</value>
-  </data>
-  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="ItemBx.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 176</value>
-  </data>
-  <data name="ItemBx.Size" type="System.Drawing.Size, System.Drawing">
-    <value>468, 117</value>
-  </data>
-  <data name="ItemBx.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="ItemBx.Text" xml:space="preserve">
-    <value>Item</value>
-  </data>
-  <data name="&gt;&gt;ItemBx.Name" xml:space="preserve">
-    <value>ItemBx</value>
-  </data>
-  <data name="&gt;&gt;ItemBx.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ItemBx.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;ItemBx.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="progressLbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="progressLbl.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12pt</value>
   </data>
@@ -409,7 +150,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;progressLbl.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="progressBar1.Location" type="System.Drawing.Point, System.Drawing">
     <value>149, 135</value>
@@ -433,11 +174,12 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="StopBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12pt</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="StopBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -463,7 +205,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;StopBtn.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="StartBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12pt</value>
@@ -490,7 +232,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;StartBtn.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="AccountLbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -520,7 +262,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;AccountLbl.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="LoginLbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -550,7 +292,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;LoginLbl.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -1269,7 +1011,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIcAAACTCAYAAACkoAqHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAAZiS0dEAP8A/wD/oL2nkwAAAAd0SU1FB9wFGwsIA7tVHUkAAAAdaVRYdENvbW1l
+        DQAACw0B7QfALAAAAAZiS0dEAP8A/wD/oL2nkwAAAAd0SU1FB9wFGwsIA7tVHUkAAAAdaVRYdENvbW1l
         bnQAAAAAAENyZWF0ZWQgd2l0aCBHSU1QZC5lBwAAbOhJREFUeF7tnQV8VFfTxm9wggYLbsHd3S1IcC91
         qrS00JYWahQKxYq7uzskEIhgSQgJREmIu7uH2D7fM3d3w0LpW/36trzd/p6ezbLZ7N7735k5c+bMVZR/
         b/8egX+PwL9H4N8j8O8R+PsegdRLihJ96u/7/n7pnV1Z+UvP+Pfff9MRSDurKBnWT//KDv6YfEQplXhE
