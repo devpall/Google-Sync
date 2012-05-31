@@ -5,16 +5,20 @@ using System;
 using Google_Sync.src;
 
 
+
 namespace Google_Sync.src
 {
     
     class WriteIniFile
     {
         private IniFile Settings;
-        const string password = "bNvG$G&MnK_%alpbSu7x[c0/63A90#]f{6w0>C6*5[Vfn[fX[Ex%";
+        private string password;
+        private HardwareID HID;
 
         public WriteIniFile()
         {
+            HID = new HardwareID();
+            password = HID.getHardawareID();
             Settings = new src.IniFile(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Google Sync\config.ini");
         }
 
@@ -84,6 +88,5 @@ namespace Google_Sync.src
                 this.Settings["Sync Options"]["Intervall"] = value;
             }
         }
-
     }
 }
