@@ -10,6 +10,7 @@ namespace Google_Sync.src
     {
         private string authToken;
         private string username;
+        private string password;
 
         private Service service;
 
@@ -38,6 +39,28 @@ namespace Google_Sync.src
             {
                 return this.username;
             }
+            set
+            {
+                username = value;
+            }
+        }
+
+        public string Password
+        {
+            get
+            {
+                return this.password;
+            }
+            set
+            {
+                this.password = value;
+            }
+        }
+
+        private void Login()
+        {
+            this.service.setUserCredentials(this.username, this.password);
+            this.authToken = this.service.QueryAuthenticationToken();
         }
     }
 }
