@@ -86,10 +86,17 @@ namespace Google_Sync.src
         }
 
 
-        private void Login()
+        public void Login()
         {
             this.service.setUserCredentials(this.username, this.password);
-            this.authToken = this.service.QueryClientLoginToken();
+            try
+            {
+                this.authToken = this.service.QueryClientLoginToken();
+            }
+            catch (Exception exception)
+            {
+                this.authToken = "Invalid Credentials";
+            }
         }
     }
 }

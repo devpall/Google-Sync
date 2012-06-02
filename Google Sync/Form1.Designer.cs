@@ -69,6 +69,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label13 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -241,6 +242,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.PasswordBx);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.SaveBx);
@@ -351,6 +353,11 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.Name = "label13";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -421,6 +428,7 @@
         private System.Windows.Forms.Label VersionLbl;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.MaskedTextBox PasswordBx;
+        private System.Windows.Forms.Label label13;
 
 
     }

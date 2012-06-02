@@ -17,6 +17,7 @@ namespace Google_Sync
        
 
         private OutlookCalendar OCal;
+        private Google_Sync.src.Google.Google google;
         private int i;
         private int count;
         private string progress = null;
@@ -96,6 +97,9 @@ namespace Google_Sync
             wIni.Password = PasswordBx.Text;
             wIni.Save = SaveBx.Checked;
             
+            this.google = new src.Google.Google(NameBx.Text, PasswordBx.Text);
+            this.google.Login();
+
             /*
              * Changed on 29.05.2012
              * Veraltet

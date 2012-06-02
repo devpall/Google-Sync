@@ -33,6 +33,7 @@ namespace Google_Sync.src.Google
         {
             if (this.googleAuthToken == null)
             {
+                this.loginDialog.Login();
                 this.googleAuthToken = loginDialog.AuthenticationToken;
                 if (this.googleAuthToken != null)
                 {
