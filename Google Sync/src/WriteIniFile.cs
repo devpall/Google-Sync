@@ -38,7 +38,14 @@ namespace Google_Sync.src
         {
             get
             {
-                return Encryption.DecryptString(this.Settings["Login"]["Password"], password);
+                try
+                {
+                    return Encryption.DecryptString(this.Settings["Login"]["Password"], password);
+                }
+                catch (Exception exception)
+                {
+                    return null;
+                }
             }
             set
             {

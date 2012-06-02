@@ -35,12 +35,12 @@ namespace Google_Sync
             
             InitializeComponent();
 
-            if (checkSaveCredentials())
+            if (SaveCredentials)
             {
-                SaveBx.Checked = checkSaveCredentials();
-                NameBx.Text = getUserName();
-                PasswordBx.Text = getPassword();
+                setCredentials();
+                LoginAction();                
             }
+
             setRadio(getRadio());
             setVersionLbl();
         }
@@ -93,20 +93,16 @@ namespace Google_Sync
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            wIni.Username = NameBx.Text;
-            wIni.Password = PasswordBx.Text;
-            wIni.Save = SaveBx.Checked;
-            
-            this.google = new src.Google.Google(NameBx.Text, PasswordBx.Text);
-            if (google.Login())
+            if (checkCredentials())
             {
-                showGoogleAccountName();
+                UserName = NameBx.Text;
+                Password = PasswordBx.Text;
             }
-            else
-            {
-                showLoginInfoLbl("Invalid Credentials");
-            }
+
+
+            SaveCredentials = SaveBx.Checked;
+
+            LoginAction();
             /*
              * Changed on 29.05.2012
              * Veraltet
@@ -121,28 +117,30 @@ namespace Google_Sync
         /// Gibt den Ini File Wert zurück ob Login gespeichert oder nicht.
         /// </summary>
         /// <returns></returns>
-        private bool checkSaveCredentials()
+        private bool SaveCredentials
         {
-            return wIni.Save;
+            get
+            {
+                return wIni.Save;
+            }
+            set
+            {
+                wIni.Save = value;
+            }
         }
 
-        /// <summary>
-        /// Gibt den Ini File Wert für den Usernamen zurück
-        /// </summary>
-        /// <returns></returns>
-        private string getUserName()
+        private bool checkCredentials()
         {
-            return wIni.Username;
+            return SaveBx.Checked;
         }
 
-        /// <summary>
-        /// Gibt den Ini File Wert für das Passwort decrypted zurück
-        /// </summary>
-        /// <returns></returns>
-        private string getPassword()
+        private void setCredentials()
         {
-            return wIni.Password;
+            SaveBx.Checked = SaveCredentials;
+            NameBx.Text = UserName;
+            PasswordBx.Text = Password;
         }
+
 
         /// <summary>
         /// Gibt die Ini File Werte für die Sync Optionen wieder
@@ -210,6 +208,83 @@ namespace Google_Sync
         }
 
         /// <summary>
+        /// Setze die Radiobutton beim Start der Applikation
+        /// </summary>
+        /// <param name="radioArray">Werte für die einzelnen Radiobuttons</param>
+        private void setRadio(bool[,] radioArray)
+        {
+            radioButton1.Checked = radioArray[0,0];
+            radioButton2.Checked = radioArray[0,1];
+            radioButton3.Checked = radioArray[0,2];
+            radioButton4.Checked = radioArray[1,0];
+            radioButton5.Checked = radioArray[1,1];
+            radioButton6.Checked = radioArray[1,2];
+
+        }
+
+        private void showLoginInfoLbl(string text)
+        {
+            LoginInfoLbl.Text = text;
+            LoginInfoLbl.Visible = true;
+            this.Update();
+        }
+
+        private void showGoogleAccountName()
+        {
+            AccountLbl.Text = NameBx.Text;
+            this.Update();
+        }
+
+        private void LoginAction()
+        {
+            this.google = new src.Google.Google(NameBx.Text, PasswordBx.Text);
+            if (google.Login())
+            {
+                showGoogleAccountName();
+                showLoginInfoLbl("Logged in");
+            }
+            else
+            {
+                showLoginInfoLbl("Invalid Credentials");
+            }
+        }
+
+ 
+
+         /// <summary>
+        /// Setz und Gibt den Ini File Wert für den Usernamen
+        /// </summary>
+        /// <returns>Passwort aus der Ini Datei </returns>
+        private string Password
+        {
+            get
+            {
+                return wIni.Password;
+            }
+            set
+            {
+                wIni.Password = value;
+            }
+        }
+
+        /// <summary>
+        /// Setz und Gibt den Ini File Wert für den Usernamen
+        /// </summary>
+        /// <returns>Username aus der Ini Datei</returns>
+        private string UserName
+        {
+            get
+            {
+                return wIni.Username;
+            }
+            set
+            {
+                wIni.Username = value;
+            }
+        }
+
+        #region Radio Button Actions
+        /// <summary>
         /// Action für den ersten Radio Button (Categorie - neues Label)
         /// </summary>
         /// <param name="sender"></param>
@@ -268,34 +343,6 @@ namespace Google_Sync
         {
             wIni.Intervall = "Off";
         }
-
-        /// <summary>
-        /// Setze die Radiobutton beim Start der Applikation
-        /// </summary>
-        /// <param name="radioArray">Werte für die einzelnen Radiobuttons</param>
-        private void setRadio(bool[,] radioArray)
-        {
-            radioButton1.Checked = radioArray[0,0];
-            radioButton2.Checked = radioArray[0,1];
-            radioButton3.Checked = radioArray[0,2];
-            radioButton4.Checked = radioArray[1,0];
-            radioButton5.Checked = radioArray[1,1];
-            radioButton6.Checked = radioArray[1,2];
-
-        }
-
-        private void showLoginInfoLbl(string text)
-        {
-            LoginInfoLbl.Text = text;
-            LoginInfoLbl.Visible = true;
-            this.Update();
-        }
-
-        private void showGoogleAccountName()
-        {
-            AccountLbl.Text = NameBx.Text;
-            this.Update();
-        }
-
+        #endregion
     }
 }
