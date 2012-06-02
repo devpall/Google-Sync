@@ -14,17 +14,31 @@ namespace Google_Sync.src
 
         private Service service;
 
+
+        /// <summary>
+        /// Konstruktor nur mit service
+        /// </summary>
+        /// <param name="serviceToUse"></param>
         public GoogleLogin(Service serviceToUse)
         {
             this.service = serviceToUse;
         }
 
+        /// <summary>
+        /// Konstruktor mit username und service
+        /// </summary>
+        /// <param name="serviceToUse"></param>
+        /// <param name="username"></param>
         public GoogleLogin(Service serviceToUse, string username)
         {
             this.service = serviceToUse;
             this.username = username;
         }
 
+
+        /// <summary>
+        /// Gibt Token zurück
+        /// </summary>
         public string AuthenticationToken
         {
             get
@@ -33,6 +47,9 @@ namespace Google_Sync.src
             }
         }
 
+        /// <summary>
+        /// Gibt und erzeugt Username
+        /// </summary>
         public string User
         {
             get
@@ -45,6 +62,10 @@ namespace Google_Sync.src
             }
         }
 
+
+        /// <summary>
+        /// Gibt und erzeugt Username
+        /// </summary>
         public string Password
         {
             get
@@ -57,10 +78,13 @@ namespace Google_Sync.src
             }
         }
 
+        /// <summary>
+        /// Login methode
+        /// </summary>
         private void Login()
         {
             this.service.setUserCredentials(this.username, this.password);
-            this.authToken = this.service.QueryAuthenticationToken();
+            this.authToken = this.service.QueryClientLoginToken();
         }
     }
 }
