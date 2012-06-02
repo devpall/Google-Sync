@@ -31,5 +31,13 @@ namespace Google_Sync.src
                 return this.authToken;
             }
         }
+
+        public string User
+        {
+            get
+            {
+                return this.username;
+            }
+        }
     }
 }
