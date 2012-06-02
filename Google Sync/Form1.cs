@@ -48,22 +48,9 @@ namespace Google_Sync
         delegate void IntParameterDelegate(int count);
         delegate void StringParameterDelegate(string value);
   
-        /// <summary>
-        /// Ermittelt Version der Applikation
-        /// </summary>
-        /// <returns>Version der Applikation</returns>
-        private string Version()
-        {
-            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-        }
 
-        /// <summary>
-        /// Schreibt Version in den Versionlabel der Applikation
-        /// </summary>
-        private void setVersionLbl()
-        {
-            VersionLbl.Text = Version();
-        }
+
+
 
         /// <summary>
         /// Action für klicken auf Start Button
@@ -93,7 +80,7 @@ namespace Google_Sync
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if (checkCredentials())
+            if (SaveBx.Checked)
             {
                 UserName = NameBx.Text;
                 Password = PasswordBx.Text;
@@ -112,9 +99,10 @@ namespace Google_Sync
             Settings["Login"]["Save Credentials"] = SaveBx.Checked.ToString();
              */
         }
-
+   
+        #region getter und setter für Username, Passwort und Login Speicher Checkbox
         /// <summary>
-        /// Gibt den Ini File Wert zurück ob Login gespeichert oder nicht.
+        /// Liest und schreibt den Ini Datei Wert für das Speicher der Logins
         /// </summary>
         /// <returns></returns>
         private bool SaveCredentials
@@ -129,130 +117,8 @@ namespace Google_Sync
             }
         }
 
-        private bool checkCredentials()
-        {
-            return SaveBx.Checked;
-        }
-
-        private void setCredentials()
-        {
-            SaveBx.Checked = SaveCredentials;
-            NameBx.Text = UserName;
-            PasswordBx.Text = Password;
-        }
-
-
         /// <summary>
-        /// Gibt die Ini File Werte für die Sync Optionen wieder
-        /// Category & Timeintervall
-        /// </summary>
-        /// <returns></returns>
-        private bool[,] getRadio()
-        {
-            bool[,] radioArray = new bool[2,3];
-            
-            string cat = wIni.Category;
-            string tim = wIni.Intervall;
-            
-            switch (cat)
-            {
-                case "Label":
-                    radioArray[0,0] = true;
-                    radioArray[0,1] = false;
-                    radioArray[0,2] = false;
-                    break;
-                case "Calendar":
-                    radioArray[0,0] = false;
-                    radioArray[0,1] = true;
-                    radioArray[0,2] = false;
-                    break;
-                case "Nothing":
-                    radioArray[0,0] = false;
-                    radioArray[0,1] = false;
-                    radioArray[0,2] = true;
-                    break;
-                default:
-                    radioArray[0,0] = false;
-                    radioArray[0,1] = false;
-                    radioArray[0,2] = false;
-                    break;
-            }
-            switch (tim)
-            {
-                case "Startup":
-                    radioArray[1,0] = true;
-                    radioArray[1,1] = false;
-                    radioArray[1,2] = false;
-                    break;
-                case "60":
-                    radioArray[1,0] = false;
-                    radioArray[1,1] = true;
-                    radioArray[1,2] = false;
-                    break;
-                case "Off":
-                    radioArray[1,0] = false;
-                    radioArray[1,1] = false;
-                    radioArray[1,2] = true;
-                    break;
-                default:
-                    radioArray[1,0] = false;
-                    radioArray[1,1] = false;
-                    radioArray[1,2] = false;
-                    break;
-            }
-      
-
-
-            return radioArray;
-
-        }
-
-        /// <summary>
-        /// Setze die Radiobutton beim Start der Applikation
-        /// </summary>
-        /// <param name="radioArray">Werte für die einzelnen Radiobuttons</param>
-        private void setRadio(bool[,] radioArray)
-        {
-            radioButton1.Checked = radioArray[0,0];
-            radioButton2.Checked = radioArray[0,1];
-            radioButton3.Checked = radioArray[0,2];
-            radioButton4.Checked = radioArray[1,0];
-            radioButton5.Checked = radioArray[1,1];
-            radioButton6.Checked = radioArray[1,2];
-
-        }
-
-        private void showLoginInfoLbl(string text)
-        {
-            LoginInfoLbl.Text = text;
-            LoginInfoLbl.Visible = true;
-            this.Update();
-        }
-
-        private void showGoogleAccountName()
-        {
-            AccountLbl.Text = NameBx.Text;
-            this.Update();
-        }
-
-        private void LoginAction()
-        {
-            this.google = new src.Google.Google(NameBx.Text, PasswordBx.Text);
-            if (google.Login())
-            {
-                showGoogleAccountName();
-                showLoginInfoLbl("Logged in");
-            }
-            else
-            {
-                showLoginInfoLbl("Invalid Credentials");
-            }
-        }
-
- 
-
-         /// <summary>
-        /// Setz und Gibt den Ini File Wert für den Usernamen
+        /// Liest und schreibt den Ini Datei Wert für den Usernamen
         /// </summary>
         /// <returns>Passwort aus der Ini Datei </returns>
         private string Password
@@ -268,7 +134,7 @@ namespace Google_Sync
         }
 
         /// <summary>
-        /// Setz und Gibt den Ini File Wert für den Usernamen
+        /// Liest und schreibt den Ini Datei Wert für den Usernamen
         /// </summary>
         /// <returns>Username aus der Ini Datei</returns>
         private string UserName
@@ -282,8 +148,9 @@ namespace Google_Sync
                 wIni.Username = value;
             }
         }
+        #endregion
 
-        #region Radio Button Actions
+        #region Schreiben der Ini Datei werte für die Radio Buttons
         /// <summary>
         /// Action für den ersten Radio Button (Categorie - neues Label)
         /// </summary>
@@ -342,6 +209,156 @@ namespace Google_Sync
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
             wIni.Intervall = "Off";
+        }
+        #endregion
+
+        #region Methoden zum setzen der Steuerelemente, Login Info Label, Account Name Label, Radio Buttons, Versions Label
+        /// <summary>
+        /// Zeigt in der GUI an ob Login erfolgreich war oder nicht
+        /// </summary>
+        /// <param name="text"></param>
+        private void showLoginInfoLbl(string text)
+        {
+            LoginInfoLbl.Text = text;
+            LoginInfoLbl.Visible = true;
+            this.Update();
+        }
+
+        /// <summary>
+        /// Übergibt den Google Account Namen an die Form zurück
+        /// </summary>
+        private void showGoogleAccountName()
+        {
+            AccountLbl.Text = NameBx.Text;
+            this.Update();
+        }
+
+        /// <summary>
+        /// Setze die Radiobutton beim Start der Applikation
+        /// </summary>
+        /// <param name="radioArray">Werte für die einzelnen Radiobuttons</param>
+        private void setRadio(bool[,] radioArray)
+        {
+            radioButton1.Checked = radioArray[0, 0];
+            radioButton2.Checked = radioArray[0, 1];
+            radioButton3.Checked = radioArray[0, 2];
+            radioButton4.Checked = radioArray[1, 0];
+            radioButton5.Checked = radioArray[1, 1];
+            radioButton6.Checked = radioArray[1, 2];
+
+        }
+
+        /// <summary>
+        /// Aus der Ini Datei gelesen werte für den Login werden zurück an die GUI geschickt.
+        /// </summary>
+        private void setCredentials()
+        {
+            SaveBx.Checked = SaveCredentials;
+            NameBx.Text = UserName;
+            PasswordBx.Text = Password;
+        }
+
+        /// <summary>
+        /// Schreibt Version in den Versionlabel der Applikation
+        /// </summary>
+        private void setVersionLbl()
+        {
+            VersionLbl.Text = Version();
+        }
+        
+        #endregion
+
+        #region Action Methods
+
+        /// <summary>
+        /// Veranlasst den Login bei Google
+        /// </summary>
+        private void LoginAction()
+        {
+            this.google = new src.Google.Google(NameBx.Text, PasswordBx.Text);
+            if (google.Login())
+            {
+                showGoogleAccountName();
+                showLoginInfoLbl("Logged in");
+            }
+            else
+            {
+                showLoginInfoLbl("Invalid Credentials");
+            }
+        }
+
+        /// <summary>
+        /// Gibt die Ini File Werte für die Sync Optionen wieder
+        /// Category & Timeintervall
+        /// </summary>
+        /// <returns></returns>
+        private bool[,] getRadio()
+        {
+            bool[,] radioArray = new bool[2, 3];
+
+            string cat = wIni.Category;
+            string tim = wIni.Intervall;
+
+            switch (cat)
+            {
+                case "Label":
+                    radioArray[0, 0] = true;
+                    radioArray[0, 1] = false;
+                    radioArray[0, 2] = false;
+                    break;
+                case "Calendar":
+                    radioArray[0, 0] = false;
+                    radioArray[0, 1] = true;
+                    radioArray[0, 2] = false;
+                    break;
+                case "Nothing":
+                    radioArray[0, 0] = false;
+                    radioArray[0, 1] = false;
+                    radioArray[0, 2] = true;
+                    break;
+                default:
+                    radioArray[0, 0] = false;
+                    radioArray[0, 1] = false;
+                    radioArray[0, 2] = false;
+                    break;
+            }
+            switch (tim)
+            {
+                case "Startup":
+                    radioArray[1, 0] = true;
+                    radioArray[1, 1] = false;
+                    radioArray[1, 2] = false;
+                    break;
+                case "60":
+                    radioArray[1, 0] = false;
+                    radioArray[1, 1] = true;
+                    radioArray[1, 2] = false;
+                    break;
+                case "Off":
+                    radioArray[1, 0] = false;
+                    radioArray[1, 1] = false;
+                    radioArray[1, 2] = true;
+                    break;
+                default:
+                    radioArray[1, 0] = false;
+                    radioArray[1, 1] = false;
+                    radioArray[1, 2] = false;
+                    break;
+            }
+
+
+
+            return radioArray;
+
+        }
+
+        /// <summary>
+        /// Ermittelt Version der Applikation
+        /// </summary>
+        /// <returns>Version der Applikation</returns>
+        private string Version()
+        {
+            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
         #endregion
     }
