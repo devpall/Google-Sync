@@ -19,6 +19,8 @@ namespace Google_Sync.src.Google
         private string pw;
         private Google_Sync.src.GoogleLogin loginDialog;
 
+        public string exception;
+
         private CalendarService calendarService = null;
 
         public Google(string username, string password)
@@ -29,17 +31,24 @@ namespace Google_Sync.src.Google
             this.loginDialog = new GoogleLogin(this.calendarService, this.user, this.pw);
         }
 
-        public void Login()
+        public bool Login()
         {
             if (this.googleAuthToken == null)
             {
-                this.loginDialog.Login();
-                this.googleAuthToken = loginDialog.AuthenticationToken;
-                if (this.googleAuthToken != null)
+                if(this.loginDialog.Login())
                 {
-                    this.calendarService.SetAuthenticationToken(this.googleAuthToken);
-                }
+                    this.googleAuthToken = loginDialog.AuthenticationToken;
+                    if (this.googleAuthToken != null)
+                    {
+                        this.calendarService.SetAuthenticationToken(this.googleAuthToken);
+                        return true;
+                    }
+                }else
+                {
+                    return false;
+                }   
             }
+            return false;
         }
 
     }

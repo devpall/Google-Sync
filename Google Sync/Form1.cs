@@ -17,6 +17,7 @@ namespace Google_Sync
        
 
         private OutlookCalendar OCal;
+        private Google_Sync.src.GoogleLogin loginDialog;
         private Google_Sync.src.Google.Google google;
         private int i;
         private int count;
@@ -98,8 +99,14 @@ namespace Google_Sync
             wIni.Save = SaveBx.Checked;
             
             this.google = new src.Google.Google(NameBx.Text, PasswordBx.Text);
-            this.google.Login();
-
+            if (google.Login())
+            {
+                showGoogleAccountName();
+            }
+            else
+            {
+                showLoginInfoLbl("Invalid Credentials");
+            }
             /*
              * Changed on 29.05.2012
              * Veraltet
@@ -275,6 +282,19 @@ namespace Google_Sync
             radioButton5.Checked = radioArray[1,1];
             radioButton6.Checked = radioArray[1,2];
 
+        }
+
+        private void showLoginInfoLbl(string text)
+        {
+            LoginInfoLbl.Text = text;
+            LoginInfoLbl.Visible = true;
+            this.Update();
+        }
+
+        private void showGoogleAccountName()
+        {
+            AccountLbl.Text = NameBx.Text;
+            this.Update();
         }
 
     }
