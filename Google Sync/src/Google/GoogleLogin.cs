@@ -35,6 +35,13 @@ namespace Google_Sync.src
             this.username = username;
         }
 
+        public GoogleLogin(Service serviceToUse, string username, string pw)
+        {
+            this.service = serviceToUse;
+            this.username = username;
+            this.password = pw;
+        }
+
 
         /// <summary>
         /// Gibt Token zurück
@@ -78,9 +85,7 @@ namespace Google_Sync.src
             }
         }
 
-        /// <summary>
-        /// Login methode
-        /// </summary>
+
         private void Login()
         {
             this.service.setUserCredentials(this.username, this.password);
