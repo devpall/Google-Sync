@@ -17,11 +17,8 @@ namespace Google_Sync
        
 
         private OutlookCalendar OCal;
-        private Google_Sync.src.GoogleLogin loginDialog;
         private Google_Sync.src.Google.Google google;
-        private int i;
-        private int count;
-        private string progress = null;
+        private int count = 0;
 
         private WriteIniFile wIni;
 
@@ -31,7 +28,7 @@ namespace Google_Sync
         public Form1()
         {
             wIni = new WriteIniFile();
-
+            this.google = new src.Google.Google();
             
             InitializeComponent();
 
@@ -59,9 +56,17 @@ namespace Google_Sync
         /// <param name="e">Default</param>
         private void StartBtn_Click(object sender, EventArgs e)
         {
-            this.OCal = new src.OutlookCalendar();
-            this.count = OCal.CalendarLength;
+            if (google.getAuth != null)
+            {
+                this.OCal = new src.OutlookCalendar();
+                this.count = OCal.CalendarLength;
 
+                for (int i = 1; i < OCal.CalendarLength + 1; i++)
+                {
+                    AppointmentItem item = (AppointmentItem)OCal.Calendar.Items[i];
+                    google.createEvent(item);
+                }
+            }
            
         }
         /// <summary>
@@ -276,7 +281,7 @@ namespace Google_Sync
         private void LoginAction()
         {
             this.google = new src.Google.Google(NameBx.Text, PasswordBx.Text);
-            if (google.Login())
+            if (google.loginSuccess)
             {
                 showGoogleAccountName();
                 showLoginInfoLbl("Logged in");

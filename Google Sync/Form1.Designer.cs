@@ -263,7 +263,6 @@
             this.PasswordBx.Culture = new System.Globalization.CultureInfo("de-DE");
             resources.ApplyResources(this.PasswordBx, "PasswordBx");
             this.PasswordBx.Name = "PasswordBx";
-            this.PasswordBx.PasswordChar = '●';
             // 
             // button1
             // 

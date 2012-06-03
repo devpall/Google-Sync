@@ -11,6 +11,7 @@ namespace Google_Sync.src
         private Microsoft.Office.Interop.Outlook.Application oApp;
         private Microsoft.Office.Interop.Outlook.NameSpace mapiNamespace;
         private Microsoft.Office.Interop.Outlook.MAPIFolder CalendarFolder;
+        private static Uri calendarUri = new Uri("http://www.google.com/calendar/feeds/default/private/full/");
 
         public OutlookCalendar()
         {
@@ -34,7 +35,7 @@ namespace Google_Sync.src
                 return this.Calendar.Items.Count;
             }
         }
-    }
+   }
 }
 
 
