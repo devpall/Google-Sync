@@ -22,7 +22,7 @@ namespace Google_Sync
         private int count = 0;
 
         private WriteIniFile wIni;
-        private XML xFile;
+        private XMLWriter xFile;
 
         /// <summary>
         /// Konstruktor Form1
@@ -30,7 +30,7 @@ namespace Google_Sync
         public Form1()
         {
             wIni = new WriteIniFile();
-            xFile = new XML();
+            xFile = new XMLWriter();
             this.google = new src.Google.Google();
             
             InitializeComponent();

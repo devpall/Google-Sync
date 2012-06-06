@@ -4,11 +4,11 @@ using Google_Sync.src.Outlook;
 
 namespace Google_Sync.src
 {
-    class XML
+    class XMLWriter
     {
         private XmlTextWriter xmlWriter;
         
-        public XML()
+        public XMLWriter()
         {
             xmlWriter = new XmlTextWriter(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Google Sync\Outlook.xml", System.Text.Encoding.UTF8);
             xmlWriter.Formatting = Formatting.Indented;
