@@ -99,8 +99,10 @@
     <Compile Include="src\Google\Google.cs" />
     <Compile Include="src\HardwareID.cs" />
     <Compile Include="src\IniFile.cs" />
+    <Compile Include="src\Outlook\Item.cs" />
     <Compile Include="src\Worker.cs" />
     <Compile Include="src\WriteIniFile.cs" />
+    <Compile Include="src\XML.cs" />
     <EmbeddedResource Include="Form1.de-DE.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>

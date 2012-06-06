@@ -46,8 +46,6 @@ namespace Google_Sync.src.Google
                 {
                     this.googleAuthToken = this.calendarService.QueryClientLoginToken();
                     loginSuccess = true;
-                    getEvents();
-
                 }
                 catch (System.Exception exception)
                 {

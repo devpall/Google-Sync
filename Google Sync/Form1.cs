@@ -17,10 +17,12 @@ namespace Google_Sync
        
 
         private OutlookCalendar OCal;
+        private src.Outlook.Item[] itemArray;
         private Google_Sync.src.Google.Google google;
         private int count = 0;
 
         private WriteIniFile wIni;
+        private XML xFile;
 
         /// <summary>
         /// Konstruktor Form1
@@ -28,6 +30,7 @@ namespace Google_Sync
         public Form1()
         {
             wIni = new WriteIniFile();
+            xFile = new XML();
             this.google = new src.Google.Google();
             
             InitializeComponent();
@@ -60,12 +63,14 @@ namespace Google_Sync
             {
                 this.OCal = new src.OutlookCalendar();
                 this.count = OCal.CalendarLength;
-
+                itemArray = new src.Outlook.Item[OCal.CalendarLength];
                 for (int i = 1; i < OCal.CalendarLength + 1; i++)
                 {
-                    AppointmentItem item = (AppointmentItem)OCal.Calendar.Items[i];
-                    google.createEvent(item);
+                    AppointmentItem oItem = (AppointmentItem)OCal.Calendar.Items[i];
+                    itemArray[i - 1] = new src.Outlook.Item(oItem.GlobalAppointmentID, oItem.Subject, oItem.Body, oItem.Categories,oItem.StartInStartTimeZone.ToString(),oItem.EndInEndTimeZone.ToString(), oItem.Recipients.ToString(),oItem.Location);
                 }
+                xFile.write(itemArray);
+                
             }
            
         }
