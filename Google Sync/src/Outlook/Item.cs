@@ -18,6 +18,13 @@ namespace Google_Sync.src.Outlook
         public string group { get; private set; }
         public string location { get; private set; }
         public bool isReturning { get; private set; }
+        public bool allDayEvent { get; private set; }
+
+        public int intervall { get; private set; }
+        public bool noEndDate { get; private set; }
+        public string patternEndDate { get; private set; }
+        public string patternStartDate { get; private set; }
+        public int occurences { get; private set; }
 
         public Item(Microsoft.Office.Interop.Outlook.AppointmentItem oItem)
         {
@@ -32,6 +39,11 @@ namespace Google_Sync.src.Outlook
             this.location = oItem.Location;
             this.group = getRecipients(oItem);
             this.isReturning = oItem.IsRecurring;
+            if (isReturning)
+            {
+                getReccuringInfos(oItem);
+            }
+            this.allDayEvent = oItem.AllDayEvent;
 
         }
 
@@ -44,6 +56,16 @@ namespace Google_Sync.src.Outlook
                 Srecips = recip.Address + ";" + Srecips;
             }
             return Srecips;
+        }
+
+        private void getReccuringInfos(Microsoft.Office.Interop.Outlook.AppointmentItem oItem)
+        {
+            Microsoft.Office.Interop.Outlook.RecurrencePattern pattern = oItem.GetRecurrencePattern();
+            this.intervall = pattern.Interval;
+            this.occurences = pattern.Occurrences;
+            this.patternStartDate = pattern.PatternStartDate.ToString();
+            this.patternEndDate = pattern.PatternEndDate.ToString();
+            this.noEndDate = pattern.NoEndDate;
         }
     }
 }

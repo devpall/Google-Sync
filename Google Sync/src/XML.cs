@@ -25,11 +25,40 @@ namespace Google_Sync.src
                 xmlWriter.WriteElementString("ID", item.id);
                 xmlWriter.WriteElementString("Subject", item.subject);
                 xmlWriter.WriteElementString("Location", item.location);
+                xmlWriter.WriteElementString("AllDAy", item.allDayEvent.ToString());
                 xmlWriter.WriteElementString("StartTime", item.startTime);
                 xmlWriter.WriteElementString("EndTime", item.endTime);
                 xmlWriter.WriteElementString("Recipients", item.group);
                 xmlWriter.WriteElementString("Location", item.location);
                 xmlWriter.WriteStartElement("Recurring", item.isReturning.ToString());
+                if (item.isReturning)
+                {
+                    try
+                    {
+                        xmlWriter.WriteElementString("Intervall", item.intervall.ToString());
+                    }
+                    catch (Exception NullPointerException)
+                    {
+                        xmlWriter.WriteElementString("Intervall", "0");
+                    } 
+                    try
+                    {
+                        xmlWriter.WriteElementString("Occurences", item.occurences.ToString());
+                    }
+                    catch (Exception NullPointerException)
+                    {
+                        xmlWriter.WriteElementString("Occurences", "0");
+                    }
+                    xmlWriter.WriteElementString("PatternStartDate", item.patternStartDate);
+
+                    if (item.noEndDate)
+                    {
+                        xmlWriter.WriteElementString("NoEndDate", item.noEndDate.ToString());
+                    }else
+                    {
+                        xmlWriter.WriteElementString("PatternEndDate", item.patternEndDate);
+                    }
+                }
                 xmlWriter.WriteEndElement();
                 xmlWriter.WriteEndElement();
                 
