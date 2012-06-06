@@ -67,7 +67,7 @@ namespace Google_Sync
                 for (int i = 1; i < OCal.CalendarLength + 1; i++)
                 {
                     AppointmentItem oItem = (AppointmentItem)OCal.Calendar.Items[i];
-                    itemArray[i - 1] = new src.Outlook.Item(oItem.GlobalAppointmentID, oItem.Subject, oItem.Body, oItem.Categories,oItem.StartInStartTimeZone.ToString(),oItem.EndInEndTimeZone.ToString(), oItem.Recipients.ToString(),oItem.Location);
+                    itemArray[i - 1] = new src.Outlook.Item(oItem);
                 }
                 xFile.write(itemArray);
                 

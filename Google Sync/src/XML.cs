@@ -21,13 +21,16 @@ namespace Google_Sync.src
             xmlWriter.WriteStartElement("Appointments");
             foreach (Item item in itemArray)
             {
-                xmlWriter.WriteStartElement("Appointment=", item.id);
+                xmlWriter.WriteStartElement("Appointment");
+                xmlWriter.WriteElementString("ID", item.id);
                 xmlWriter.WriteElementString("Subject", item.subject);
-                xmlWriter.WriteElementString("Subject", item.location);
-                xmlWriter.WriteElementString("Subject", item.startTime);
-                xmlWriter.WriteElementString("Subject", item.endTime);
-                xmlWriter.WriteElementString("Subject", item.group);
-                xmlWriter.WriteElementString("Subject", item.location);
+                xmlWriter.WriteElementString("Location", item.location);
+                xmlWriter.WriteElementString("StartTime", item.startTime);
+                xmlWriter.WriteElementString("EndTime", item.endTime);
+                xmlWriter.WriteElementString("Recipients", item.group);
+                xmlWriter.WriteElementString("Location", item.location);
+                xmlWriter.WriteStartElement("Recurring", item.isReturning.ToString());
+                xmlWriter.WriteEndElement();
                 xmlWriter.WriteEndElement();
                 
             }

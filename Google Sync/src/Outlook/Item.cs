@@ -7,6 +7,8 @@ namespace Google_Sync.src.Outlook
 {
     class Item
     {
+        private Microsoft.Office.Interop.Outlook.AppointmentItem oItem;
+
         public string id { get; private set; }
         public string subject { get; private set; }
         public string description { get; private set; }
@@ -15,17 +17,33 @@ namespace Google_Sync.src.Outlook
         public string endTime { get; private set; }
         public string group { get; private set; }
         public string location { get; private set; }
+        public bool isReturning { get; private set; }
 
-        public Item(string id, string subject, string description, string category, string startTime, string endTime, string group, string location)
+        public Item(Microsoft.Office.Interop.Outlook.AppointmentItem oItem)
         {
-            this.id = id;
-            this.subject = subject;
-            this.description = description;
-            this.category = category;
-            this.startTime = startTime;
-            this.endTime = endTime;
-            this.group = group;
-            this.location = location;
+            // TODO: Complete member initialization
+
+            this.id = oItem.EntryID;
+            this.subject = oItem.Subject;
+            this.description = oItem.Body;
+            this.category = oItem.Categories;
+            this.startTime = oItem.StartInStartTimeZone.ToString();
+            this.endTime = oItem.EndInEndTimeZone.ToString();
+            this.location = oItem.Location;
+            this.group = getRecipients(oItem);
+            this.isReturning = oItem.IsRecurring;
+
+        }
+
+        private string getRecipients(Microsoft.Office.Interop.Outlook.AppointmentItem oItem)
+        {
+            string Srecips = null;
+            Microsoft.Office.Interop.Outlook.Recipients recips = oItem.Recipients;
+            foreach (Microsoft.Office.Interop.Outlook.Recipient recip in recips)
+            {
+                Srecips = recip.Address + ";" + Srecips;
+            }
+            return Srecips;
         }
     }
 }
