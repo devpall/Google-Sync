@@ -102,7 +102,7 @@
     <Compile Include="src\Outlook\Item.cs" />
     <Compile Include="src\Worker.cs" />
     <Compile Include="src\WriteIniFile.cs" />
-    <Compile Include="src\XML.cs" />
+    <Compile Include="src\XMLWriter.cs" />
     <EmbeddedResource Include="Form1.de-DE.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
