@@ -3,6 +3,7 @@ using System;
 using Google_Sync.src.Outlook;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 namespace Google_Sync.src
 {
@@ -13,7 +14,10 @@ namespace Google_Sync.src
 
         public XMLWriter()
         {
-            CreateXML();
+            if (!File.Exists(file))
+            {
+                CreateXML();
+            }
         }
 
         public void CreateXML()
@@ -35,6 +39,7 @@ namespace Google_Sync.src
                     new XAttribute("ID", item.id),
                     new XElement("Subject", item.subject),
                     new XElement("Categorie", item.category),
+                    new XElement("Body", item.body),
                     new XElement("Location",item.location),
                     new XElement("AllDay", item.allDayEvent.ToString()),
                     new XElement("StartTime",item.startTime),
