@@ -26,6 +26,8 @@ namespace Google_Sync.src.Outlook
         public string patternStartDate { get; private set; }
         public int occurences { get; private set; }
 
+        public string status { get; private set; }
+
         public Item(Microsoft.Office.Interop.Outlook.AppointmentItem oItem)
         {
             // TODO: Complete member initialization

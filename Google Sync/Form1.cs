@@ -59,6 +59,8 @@ namespace Google_Sync
         /// <param name="e">Default</param>
         private void StartBtn_Click(object sender, EventArgs e)
         {
+            progressLbl.Text = "Working";
+            progressLbl.Visible = true;
             if (google.getAuth != null)
             {
                 this.OCal = new src.OutlookCalendar();
@@ -68,10 +70,13 @@ namespace Google_Sync
                 {
                     AppointmentItem oItem = (AppointmentItem)OCal.Calendar.Items[i];
                     itemArray[i - 1] = new src.Outlook.Item(oItem);
+                    xFile.AddNode(itemArray[i - 1]);
                 }
-                xFile.write(itemArray);
                 
             }
+
+            progressLbl.Text = "Done";
+            progressLbl.Visible = true;
            
         }
         /// <summary>
