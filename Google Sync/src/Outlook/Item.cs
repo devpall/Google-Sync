@@ -18,7 +18,6 @@ namespace Google_Sync.src.Outlook
         public string location { get; private set; }
         public bool isReturning { get; private set; }
         public bool allDayEvent { get; private set; }
-
         public string body { get; private set; }
         public int intervall { get; private set; }
         public bool noEndDate { get; private set; }
@@ -46,7 +45,6 @@ namespace Google_Sync.src.Outlook
             }
             this.allDayEvent = oItem.AllDayEvent;
             this.body = oItem.Body;
-
         }
 
         private string getRecipients(Microsoft.Office.Interop.Outlook.AppointmentItem oItem)

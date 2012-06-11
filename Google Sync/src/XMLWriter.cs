@@ -40,24 +40,28 @@ namespace Google_Sync.src
                     new XElement("Subject", item.subject),
                     new XElement("Categorie", item.category),
                     new XElement("Body", item.body),
-                    new XElement("Location",item.location),
+                    new XElement("Location", item.location),
                     new XElement("AllDay", item.allDayEvent.ToString()),
-                    new XElement("StartTime",item.startTime),
+                    new XElement("StartTime", item.startTime),
                     new XElement("EndTime", item.endTime),
-                    new XElement("Recipients",item.group),
-                    new XElement("Recurring", 
-                        new XAttribute("IS",item.isReturning.ToString()),
-                        new XElement ("Intervall",item.intervall.ToString()),
-                        new XElement ("Occurences", item.occurences.ToString()),
-                        new XElement ("PatternStartDate", item.patternStartDate),
-                        new XElement ("NoEndDate", item.noEndDate.ToString()),
-                        new XElement ("PatternEndDate", item.patternEndDate)
+                    new XElement("Recipients", item.group),
+                    new XElement("Recurring",
+                        new XAttribute("IS", item.isReturning.ToString()),
+                        new XElement("Intervall", item.intervall.ToString()),
+                        new XElement("Occurences", item.occurences.ToString()),
+                        new XElement("PatternStartDate", item.patternStartDate),
+                        new XElement("NoEndDate", item.noEndDate.ToString()),
+                        new XElement("PatternEndDate", item.patternEndDate)
                                 )
                   );
-
-                XMLDoc.Element("Appointments").Add(newNode);           
-                XMLDoc.Save(file);
+                XMLDoc.Element("Appointments").Add(newNode);
             }
+            else
+            {
+
+            }
+            
+            XMLDoc.Save(file);
         }
 
         private bool findItem(string id)
@@ -69,6 +73,15 @@ namespace Google_Sync.src
                 return false;
             }
             return true;
+        }
+        /// <summary>
+        /// Methode zum Updaten eines vorhandenen Items innerhalb von Outlook
+        /// TODO: Muss ich noch schreiben.
+        /// </summary>
+        /// <param name="item">Das Kalender Item</param>
+        private void updateItem(Item item)
+        {
+
         }
     }
 }
