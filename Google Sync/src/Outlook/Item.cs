@@ -12,8 +12,8 @@ namespace Google_Sync.src.Outlook
         public string subject { get; private set; }
         public string description { get; private set; }
         public string category { get; private set; }
-        public string startTime { get; private set; }
-        public string endTime { get; private set; }
+        public DateTime startTime { get; private set; }
+        public DateTime endTime { get; private set; }
         public string group { get; private set; }
         public string location { get; private set; }
         public bool isReturning { get; private set; }
@@ -21,8 +21,8 @@ namespace Google_Sync.src.Outlook
         public string body { get; private set; }
         public int intervall { get; private set; }
         public bool noEndDate { get; private set; }
-        public string patternEndDate { get; private set; }
-        public string patternStartDate { get; private set; }
+        public DateTime patternEndDate { get; private set; }
+        public DateTime patternStartDate { get; private set; }
         public int occurences { get; private set; }
 
         public string status { get; private set; }
@@ -34,8 +34,8 @@ namespace Google_Sync.src.Outlook
             this.subject = oItem.Subject;
             this.description = oItem.Body;
             this.category = oItem.Categories;
-            this.startTime = oItem.StartInStartTimeZone.ToString();
-            this.endTime = oItem.EndInEndTimeZone.ToString();
+            this.startTime = oItem.StartInStartTimeZone;
+            this.endTime = oItem.EndInEndTimeZone;
             this.location = oItem.Location;
             this.group = getRecipients(oItem);
             this.isReturning = oItem.IsRecurring;
@@ -63,8 +63,8 @@ namespace Google_Sync.src.Outlook
             Microsoft.Office.Interop.Outlook.RecurrencePattern pattern = oItem.GetRecurrencePattern();
             this.intervall = pattern.Interval;
             this.occurences = pattern.Occurrences;
-            this.patternStartDate = pattern.PatternStartDate.ToString();
-            this.patternEndDate = pattern.PatternEndDate.ToString();
+            this.patternStartDate = pattern.PatternStartDate;
+            this.patternEndDate = pattern.PatternEndDate;
             this.noEndDate = pattern.NoEndDate;
         }
     }

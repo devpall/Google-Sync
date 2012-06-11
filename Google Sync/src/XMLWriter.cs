@@ -11,12 +11,13 @@ namespace Google_Sync.src
     {
         private string file = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Google Sync\Outlook.xml";
         private XDocument XMLDoc;
-
+        private bool del;
         public XMLWriter()
         {
             if (!File.Exists(file))
             {
                 CreateXML();
+
             }
         }
 
@@ -32,9 +33,11 @@ namespace Google_Sync.src
 
         public void AddNode(Item item)
         {
+            XMLDoc = XDocument.Load(file);
+
             if (!(findItem(item.id)))
             {
-                XMLDoc = XDocument.Load(file);
+                
                 XElement newNode = new XElement("Appointment",
                     new XAttribute("ID", item.id),
                     new XElement("Subject", item.subject),
@@ -55,10 +58,35 @@ namespace Google_Sync.src
                                 )
                   );
                 XMLDoc.Element("Appointments").Add(newNode);
+                XMLDoc.Save(file);
             }
             else
             {
+                if (item.isReturning)
+                {
+                    if (item.allDayEvent)
+                    {
+                        if (item.patternEndDate < DateTime.Now)
+                        {
+                            DelNode(item.id);
+                        }
 
+                    }
+                    else
+                    {
+                        if (item.patternEndDate < DateTime.Now)
+                        {
+                            DelNode(item.id);
+                        }
+                    }
+                }
+                else
+                {
+                    if (item.endTime < DateTime.Now)
+                    {
+                        DelNode(item.id);
+                    }
+                }
             }
             
             XMLDoc.Save(file);
@@ -66,13 +94,20 @@ namespace Google_Sync.src
 
         private bool findItem(string id)
         {
-            XMLDoc = XDocument.Load(file);
             XElement appointment = (from xml2 in XMLDoc.Descendants("Appointment") where xml2.Attribute("ID").Value == id select xml2).FirstOrDefault();
             if (appointment == null)
             {
                 return false;
             }
             return true;
+        }
+
+        private void DelNode(string id)
+        {
+            XElement Contact = (from xml2 in XMLDoc.Descendants("Appointment") where xml2.Attribute("ID").Value == id select xml2).FirstOrDefault();
+
+            Contact.Remove();
+            XMLDoc.Save(file);
         }
         /// <summary>
         /// Methode zum Updaten eines vorhandenen Items innerhalb von Outlook
