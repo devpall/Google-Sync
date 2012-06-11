@@ -7,7 +7,6 @@ namespace Google_Sync.src.Outlook
 {
     class Item
     {
-        private Microsoft.Office.Interop.Outlook.AppointmentItem oItem;
 
         public string id { get; private set; }
         public string subject { get; private set; }
@@ -31,7 +30,6 @@ namespace Google_Sync.src.Outlook
 
         public Item(Microsoft.Office.Interop.Outlook.AppointmentItem oItem)
         {
-            // TODO: Complete member initialization
 
             this.id = oItem.EntryID;
             this.subject = oItem.Subject;
