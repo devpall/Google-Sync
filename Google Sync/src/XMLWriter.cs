@@ -118,6 +118,76 @@ namespace Google_Sync.src
         {
 
         }
+
+        public Item[] AddNode(Item[] itemArray)
+        {
+            Item item = null;
+            XMLDoc = XDocument.Load(file);
+
+            var itemList = new List<Item>(itemArray);
+
+            for (int i = 0; i < itemList.Count; i++)
+            {
+                item = itemList[i];
+                if (!(findItem(item.id)))
+                {
+
+                    XElement newNode = new XElement("Appointment",
+                        new XAttribute("ID", item.id),
+                        new XElement("Subject", item.subject),
+                        new XElement("Categorie", item.category),
+                        new XElement("Body", item.body),
+                        new XElement("Location", item.location),
+                        new XElement("AllDay", item.allDayEvent.ToString()),
+                        new XElement("StartTime", item.startTime),
+                        new XElement("EndTime", item.endTime),
+                        new XElement("Recipients", item.group),
+                        new XElement("Recurring",
+                            new XAttribute("IS", item.isReturning.ToString()),
+                            new XElement("Intervall", item.intervall.ToString()),
+                            new XElement("Occurences", item.occurences.ToString()),
+                            new XElement("PatternStartDate", item.patternStartDate),
+                            new XElement("NoEndDate", item.noEndDate.ToString()),
+                            new XElement("PatternEndDate", item.patternEndDate)
+                                    )
+                      );
+                    XMLDoc.Element("Appointments").Add(newNode);
+                }
+                else
+                {
+                    if (item.isReturning)
+                    {
+                        if (item.allDayEvent)
+                        {
+                            if (item.patternEndDate < DateTime.Now)
+                            {
+                                DelNode(item.id);
+                                itemList.RemoveAt(i);
+                            }
+
+                        }
+                        else
+                        {
+                            if (item.patternEndDate < DateTime.Now)
+                            {
+                                DelNode(item.id);
+                                itemList.RemoveAt(i);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (item.endTime < DateTime.Now)
+                        {
+                            DelNode(item.id);
+                            itemList.RemoveAt(i);
+                        }
+                    }
+                }
+            }
+            XMLDoc.Save(file);
+            return itemList.ToArray();
+        }
     }
 }
    

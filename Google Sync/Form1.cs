@@ -61,7 +61,6 @@ namespace Google_Sync
         {
             progressLbl.Text = "Working";
             progressLbl.Visible = true;
-            bool del = false;
 
             if (google.getAuth != null)
             {
@@ -72,10 +71,8 @@ namespace Google_Sync
                 {
                     AppointmentItem oItem = (AppointmentItem)OCal.Calendar.Items[i];
                     itemArray[i - 1] = new src.Outlook.Item(oItem);
-
-                    xFile.AddNode(itemArray[i - 1]);
                 }
-                
+                itemArray = xFile.AddNode(itemArray);                
             }
 
             progressLbl.Text = "Done";
