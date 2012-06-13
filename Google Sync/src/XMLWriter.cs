@@ -119,6 +119,11 @@ namespace Google_Sync.src
 
         }
 
+        /// <summary>
+        /// Überladung der AddNode Methode mit Übergabe eines ItemArrays
+        /// </summary>
+        /// <param name="itemArray"></param>
+        /// <returns>ItemArray mit gelöschten (veralteten) Kalender Items</returns>
         public Item[] AddNode(Item[] itemArray)
         {
             Item item = null;
