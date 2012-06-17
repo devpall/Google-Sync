@@ -31,66 +31,6 @@ namespace Google_Sync.src
             XMLDoc.Save(file);
         }
 
-        public void AddNode(Item item)
-        {
-            XMLDoc = XDocument.Load(file);
-
-            if (!(findItem(item.id)))
-            {
-                
-                XElement newNode = new XElement("Appointment",
-                    new XAttribute("ID", item.id),
-                    new XElement("Subject", item.subject),
-                    new XElement("Categorie", item.category),
-                    new XElement("Body", item.body),
-                    new XElement("Location", item.location),
-                    new XElement("AllDay", item.allDayEvent.ToString()),
-                    new XElement("StartTime", item.startTime),
-                    new XElement("EndTime", item.endTime),
-                    new XElement("Recipients", item.recipients),
-                    new XElement("Recurring",
-                        new XAttribute("IS", item.isReturning.ToString()),
-                        new XElement("Intervall", item.intervall.ToString()),
-                        new XElement("Occurences", item.occurences.ToString()),
-                        new XElement("PatternStartDate", item.patternStartDate),
-                        new XElement("NoEndDate", item.noEndDate.ToString()),
-                        new XElement("PatternEndDate", item.patternEndDate)
-                                )
-                  );
-                XMLDoc.Element("Appointments").Add(newNode);
-                XMLDoc.Save(file);
-            }
-            else
-            {
-                if (item.isReturning)
-                {
-                    if (item.allDayEvent)
-                    {
-                        if (item.patternEndDate < DateTime.Now)
-                        {
-                            DelNode(item.id);
-                        }
-
-                    }
-                    else
-                    {
-                        if (item.patternEndDate < DateTime.Now)
-                        {
-                            DelNode(item.id);
-                        }
-                    }
-                }
-                else
-                {
-                    if (item.endTime < DateTime.Now)
-                    {
-                        DelNode(item.id);
-                    }
-                }
-            }
-            
-            XMLDoc.Save(file);
-        }
 
         private bool findItem(string id)
         {
