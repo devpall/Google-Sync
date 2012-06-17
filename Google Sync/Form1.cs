@@ -16,10 +16,7 @@ namespace Google_Sync
     {
        
 
-        private OutlookCalendar OCal;
         private src.Outlook.Item[] itemArray;
-        private Google_Sync.src.Google.Google google;
-        private int count = 0;
 
         private WriteIniFile wIni;
         private XMLWriter xFile;
@@ -31,7 +28,6 @@ namespace Google_Sync
         {
             wIni = new WriteIniFile();
             xFile = new XMLWriter();
-            this.google = new src.Google.Google();
             
             InitializeComponent();
 
@@ -59,21 +55,22 @@ namespace Google_Sync
         /// <param name="e">Default</param>
         private void StartBtn_Click(object sender, EventArgs e)
         {
+            
             progressLbl.Text = "Working";
             progressLbl.Visible = true;
 
-            if (google.getAuth != null)
-            {
-                this.OCal = new src.OutlookCalendar();
-                this.count = OCal.CalendarLength;
-                itemArray = new src.Outlook.Item[OCal.CalendarLength];
-                for (int i = 1; i < OCal.CalendarLength + 1; i++)
+            OutlookCalendar oCal = new src.OutlookCalendar();
+            Google_Sync.src.Google.GoogleCalendar gCal = new src.Google.GoogleCalendar();
+
+            itemArray = new src.Outlook.Item[oCal.CalendarLength];
+            for (int i = 1; i < oCal.CalendarLength + 1; i++)
                 {
-                    AppointmentItem oItem = (AppointmentItem)OCal.Calendar.Items[i];
+                    AppointmentItem oItem = (AppointmentItem)oCal.Calendar.Items[i];
                     itemArray[i - 1] = new src.Outlook.Item(oItem);
                 }
-                itemArray = xFile.AddNode(itemArray);                
-            }
+            itemArray = xFile.AddNode(itemArray);
+
+            gCal.InsertEvent(itemArray);
 
             progressLbl.Text = "Done";
             progressLbl.Visible = true;
@@ -290,6 +287,7 @@ namespace Google_Sync
         /// </summary>
         private void LoginAction()
         {
+            /*
             this.google = new src.Google.Google(NameBx.Text, PasswordBx.Text);
             if (google.loginSuccess)
             {
@@ -300,6 +298,7 @@ namespace Google_Sync
             {
                 showLoginInfoLbl("Invalid Credentials");
             }
+             * */
         }
 
         /// <summary>
