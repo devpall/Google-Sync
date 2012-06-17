@@ -22,9 +22,14 @@ namespace Google_Sync.src.Google
 
                 //erforderliche Eigenschaften
                 calEvent.Attendees = setAttendees(item);
+                calEvent.Start = setTime(true, item);
+                calEvent.End = setTime(false, item);
 
                 //optionale Eigenschaften
                 calEvent.Summary = item.subject;
+                calEvent.Description = item.description;
+                calEvent.Location = item.location;
+
                 calEventList.Add(calEvent);
             }
         }
@@ -41,5 +46,29 @@ namespace Google_Sync.src.Google
             }
             return attendees;
         }
+
+        /// <summary>
+        /// Setzt die Start und Endzeit eines Termins
+        /// </summary>
+        /// <param name="start">start = true    -> Starttermin
+        ///                     start = false   -> Endtermin
+        /// </param>
+        /// <returns>Start/Endtermin als EventDateTime </returns>
+        private EventDateTime setTime(bool start, Google_Sync.src.Outlook.Item tItem)
+        {
+            EventDateTime eventTime = new EventDateTime();
+            if (start)
+            {
+                eventTime.Date = tItem.startTime.ToString();
+            }
+            else
+            {
+                eventTime.Date = tItem.endTime.ToString();
+            }
+
+            return eventTime;
+        }
+
+        private EventReminder 
     }
 }
